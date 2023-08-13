@@ -17,7 +17,7 @@ tags: tips, regex, regular-expressions
 
 > *Only sounds fancy, but in a nutshell, it is just a primal flowchart.*
 
-![](https://miro.medium.com/v2/resize:fit:700/1*BtggalwtgftX6t2IemXJOA.jpeg align="left")
+![](https://miro.medium.com/v2/resize:fit:700/1*BtggalwtgftX6t2IemXJOA.jpeg)
 
 from [community.coda.io](http://community.coda.io)
 
@@ -58,7 +58,7 @@ No matter how end-user input, the number will always be `xxx xx xxxx` or some ot
 
 The pattern `xxx xx xxxx` can be represented as `\D*\d{3}\D*\d{2}\D*\d{4}`. Gibberish? Let me tell you the lexemes or the grammar of **Regex**.
 
-![](https://miro.medium.com/v2/resize:fit:511/1*AAiXM0KwFTFpC-Djt2QskQ.png align="left")
+![](https://miro.medium.com/v2/resize:fit:511/1*AAiXM0KwFTFpC-Djt2QskQ.png)
 
 for more, check the link below 👇
 
@@ -83,7 +83,7 @@ So `\D*\d{3}\D*\d{2}\D*\d{4}` becomes: -
 
 OR, you can think of the regex as a map of how a finger should move across a piece of string, a state diagram.
 
-![](https://miro.medium.com/v2/resize:fit:700/1*lnNrjFCFN02DUbl8CeWjsQ.png align="left")
+![](https://miro.medium.com/v2/resize:fit:700/1*lnNrjFCFN02DUbl8CeWjsQ.png)
 
 see, I told you 😘
 
@@ -140,19 +140,19 @@ Let’s look at an example. Say, we need to extract the names of people from pho
 
 If in the diagram, then traces would be…
 
-![](https://miro.medium.com/v2/resize:fit:700/1*hDW4o0KIcukcskby0YdXFw.png align="left")
+![](https://miro.medium.com/v2/resize:fit:700/1*hDW4o0KIcukcskby0YdXFw.png)
 
 from the start to 2nd state
 
-![](https://miro.medium.com/v2/resize:fit:700/1*80ips02sIfHQ8PNOpg2kxA.png align="left")
+![](https://miro.medium.com/v2/resize:fit:700/1*80ips02sIfHQ8PNOpg2kxA.png)
 
 from 2nd to 3rd
 
-![](https://miro.medium.com/v2/resize:fit:700/1*TMPeXddwIJB1uQIlVEhdHw.png align="left")
+![](https://miro.medium.com/v2/resize:fit:700/1*TMPeXddwIJB1uQIlVEhdHw.png)
 
 from 3rd to nth
 
-![](https://miro.medium.com/v2/resize:fit:700/1*JpPIFpdLiXz9yFMv2DNULw.png align="left")
+![](https://miro.medium.com/v2/resize:fit:700/1*JpPIFpdLiXz9yFMv2DNULw.png)
 
 nth to finish.
 
@@ -162,7 +162,7 @@ Are we done? no there is another possible variant!
 
 The difference would be from *2nd* to *3rd* we have to scan an s.
 
-![](https://miro.medium.com/v2/resize:fit:700/1*TUAGDMJtlqCBagrWHSbo2g.png align="left")
+![](https://miro.medium.com/v2/resize:fit:700/1*TUAGDMJtlqCBagrWHSbo2g.png)
 
 2nd to 3rd state transition changes
 
@@ -174,35 +174,35 @@ This time, *2nd* to *3rd* trigger is `r`.
 
 So, *2nd* to *3rd* have more than one transition.
 
-![](https://miro.medium.com/v2/resize:fit:700/1*dPUySP4eXsKMhuaci2xf5w.png align="left")
+![](https://miro.medium.com/v2/resize:fit:700/1*dPUySP4eXsKMhuaci2xf5w.png)
 
 different paths machine can deviate.
 
 And, in between an *nth* and (*n+1)th* state may share the same trigger but multiple times. E.g., along `irnadin` in `Birnadin`, `i` and `r` are the same trigger but have multiple points of presence.
 
-![](https://miro.medium.com/v2/resize:fit:700/1*JMQKg9qjokpCxXS1jj_67w.png align="left")
+![](https://miro.medium.com/v2/resize:fit:700/1*JMQKg9qjokpCxXS1jj_67w.png)
 
 first pass;
 
 👆 can be simplified as 👇
 
-![](https://miro.medium.com/v2/resize:fit:700/1*9jCWFvJYU2n7_x0LbdhbDQ.png align="left")
+![](https://miro.medium.com/v2/resize:fit:700/1*9jCWFvJYU2n7_x0LbdhbDQ.png)
 
 simplified on 2nd pass.
 
 So, as a **result,** our state diagram becomes like 👇
 
-![](https://miro.medium.com/v2/resize:fit:700/1*zKxfTXP1qVkyqVbWueQ09Q.png align="left")
+![](https://miro.medium.com/v2/resize:fit:700/1*zKxfTXP1qVkyqVbWueQ09Q.png)
 
 click to zoom and analyze 🔍
 
 ## **Compilation**
 
-![](https://miro.medium.com/v2/resize:fit:700/1*hDW4o0KIcukcskby0YdXFw.png align="left")
+![](https://miro.medium.com/v2/resize:fit:700/1*hDW4o0KIcukcskby0YdXFw.png)
 
 gives: M
 
-![](https://miro.medium.com/v2/resize:fit:700/1*dPUySP4eXsKMhuaci2xf5w.png align="left")
+![](https://miro.medium.com/v2/resize:fit:700/1*dPUySP4eXsKMhuaci2xf5w.png)
 
 this gives: M\[asr\]
 
@@ -212,7 +212,7 @@ The whitespace gives us, `M[asr]\W*\s*`, there could be more than 1 space due to
 
 Then an Uppercase: `M[asr]\W*\s*[A-Z]`, you could actually say `\w` instead of `A-Z` if you want;
 
-![](https://miro.medium.com/v2/resize:fit:700/1*9jCWFvJYU2n7_x0LbdhbDQ.png align="left")
+![](https://miro.medium.com/v2/resize:fit:700/1*9jCWFvJYU2n7_x0LbdhbDQ.png)
 
 we end up with: M\[asr\]\\W\*\\s\*\[A-Z\]\\w\*
 
