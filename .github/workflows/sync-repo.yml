@@ -23,7 +23,7 @@ jobs:
         run: python3 mv-files.py $HOME/files.csv
 
       - name: sync the files
-        uses: cpina/github-action-push-to-another-repository@main
+        uses: BirnadinErick/sync-to-repo@main
         env:
           SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
         with:
