@@ -2,16 +2,23 @@ name: test-job
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 jobs:
-  Explore-GitHub-Actions:
+  sync:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-      
-      - name: Check out repository code
-        uses: actions/checkout@v3
-      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
-      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
-      - name: List files in the repository
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Delta Files
+        id: file_changes
+        uses: trilom/file-changes-action@v1.2.4
+
+      - name: Display files' delta
         run: |
-          ls ${{ github.workspace }}
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+          cat $HOME/files.json
+          cat $HOME/files_modified.json
+          cat $HOME/files_added.json
+          cat $HOME/files_removed.json
+
+      - name: sync-repo
+        run: echo "syncing..."
+
