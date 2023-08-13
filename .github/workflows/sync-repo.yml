@@ -12,8 +12,8 @@ jobs:
         id: file_changes
         uses: trilom/file-changes-action@v1.2.4
         with:
-          fileOutput: 'csv'
-          output: 'csv'
+          fileOutput: ','
+          output: ','
 
       - name: Display files' delta
         run: |
