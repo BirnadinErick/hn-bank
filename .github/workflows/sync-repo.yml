@@ -13,6 +13,7 @@ jobs:
         uses: trilom/file-changes-action@v1.2.4
         with:
           fileOutput: 'csv'
+          output: 'csv'
 
       - name: Display files' delta
         run: |
