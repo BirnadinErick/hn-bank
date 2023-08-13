@@ -11,14 +11,25 @@ jobs:
       - name: Delta Files
         id: file_changes
         uses: trilom/file-changes-action@v1.2.4
+        with:
+          fileOutput: 'csv'
 
       - name: Display files' delta
         run: |
-          cat $HOME/files.json
-          cat $HOME/files_modified.json
-          cat $HOME/files_added.json
-          cat $HOME/files_removed.json
+          cat $HOME/files.csv
 
-      - name: sync-repo
-        run: echo "syncing..."
+      - name: prepare changed files
+        run: python3 mv-files.py $HOME/files.csv
+
+      - name: sync the files
+        uses: cpina/github-action-push-to-another-repository@main
+        env:
+          SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
+        with:
+          source-directory: 'files'
+          target-directory: 'src/posts'
+          user-email: 45619033+BirnadinErick@users.noreply.github.com
+          target-branch: master
+          destination-github-username: 'BirnadinErick'
+          destination-repository-name: 'astro-test'
 
