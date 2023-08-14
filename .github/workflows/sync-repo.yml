@@ -20,7 +20,7 @@ jobs:
           cat $HOME/files.csv
 
       - name: prepare changed files
-        run: python3 mv-files.py $HOME/files.csv
+        run: python3 mv-files.py $HOME/files.csv files
 
       - name: sync the files
         uses: BirnadinErick/sync-to-repo@main
